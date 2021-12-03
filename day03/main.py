@@ -1,41 +1,31 @@
-def fn(li):
-    new_list = [0] * len(li[0])
-    for item in li:
-        for i, num in enumerate(item):
-            temp = new_list[i]
-            new_list.pop(i)
-            new_list.insert(i, temp + int(num))
-    return new_list
-
-
-def sum_i(li, i):
+def sum_i(li, index):
     total = 0
-    for item in li:
-        total += int(item[i])
+    for element in li:
+        total += int(element[index])
     return total
 
 
-def remove_0(li, i):
+def remove_0(li, index):
     em = []
-    for item in li:
-        if int(item[i]) == 1:
-            em.append(item)
+    for elements in li:
+        if int(elements[index]) == 1:
+            em.append(elements)
     return em
 
 
-def remove_1(li, i):
+def remove_1(li, index):
     em = []
-    for item in li:
-        if int(item[i]) == 0:
-            em.append(item)
+    for elements in li:
+        if int(elements[index]) == 0:
+            em.append(elements)
     return em
 
 
 def bin_to_num(s):
     value = 0
-    for i, num in enumerate(s):
-        if int(num) == 1:
-            value += 2 ** (11 - i)
+    for index, nm in enumerate(s):
+        if int(nm) == 1:
+            value += 2 ** (11 - index)
     return value
 
 
@@ -45,8 +35,9 @@ with open('data.txt', 'r') as file:
     g_num = 0
     e_num = 0
     my_list = file.read().splitlines()
-    for i, item in enumerate(fn(my_list)):
-        if item > 500:
+
+    for i in range(12):
+        if sum_i(my_list, i) > 500:
             g_num += 2 ** (11 - i)
         else:
             e_num += 2 ** (11 - i)
