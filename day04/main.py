@@ -47,7 +47,7 @@ def sum_arr(li):
 
 with open('data.txt', 'r') as file:
     my_list = file.read().split("\n")
-    new_list = list(filter(lambda x: x != "\'\'", file.read().split("\n")))
+    new_list = list(filter(lambda x: x != "''", file.read().split("\n")))
     input_num = my_list[0].split(',')
     data = list(filter(lambda x: x != '', my_list[1:]))
     arr2 = []
