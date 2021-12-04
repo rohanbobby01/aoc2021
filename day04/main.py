@@ -23,7 +23,7 @@ def check_particular_column_space(arr, ind):
         return True
 
 
-def check_column_none(arr):
+def check_column_space(arr):
     for j in range(5):
         if check_particular_column_space(arr, j):
             return True
@@ -33,7 +33,7 @@ def check_arr(ar, in_num):
     for a in range(len(in_num)):
         for b in range(len(ar)):
             in_num_to_space(ar[b], in_num[a])
-            if check_row_space(ar[b]) or check_column_none(ar[b]):
+            if check_row_space(ar[b]) or check_column_space(ar[b]):
                 return b, int(in_num[a])
 
 
