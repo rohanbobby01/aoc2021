@@ -24,8 +24,8 @@ def check_particular_column_space(arr, ind):
 
 
 def check_column_space(arr):
-    for j in range(5):
-        if check_particular_column_space(arr, j):
+    for a in range(5):
+        if check_particular_column_space(arr, a):
             return True
 
 
