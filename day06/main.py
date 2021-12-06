@@ -1,13 +1,11 @@
 def dict_update(di):
-    i0 = di[1]
     for k, v in di.items():
         if k == 0:
             di.update({9: di[9] + v})
             di.update(({7: di[7] + v}))
-        elif v > 0:
+        else:
             di.update({k - 1: v})
             di.update({k: 0})
-    di.update({0: i0})
 
 
 def list_to_dict(li, di):
