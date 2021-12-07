@@ -7,7 +7,7 @@ with open('data.txt', 'r') as file:
     my_dict_1 = {}
     my_dict_2 = {}
     for i in range(min(my_list), max(my_list)+1):
-        count_1 =0
+        count_1 = 0
         count_2 = 0
         for item in my_list:
             count_1 += abs((item-i))
