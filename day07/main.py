@@ -1,5 +1,5 @@
-def sum_n(i):
-    return i*(i+1)/2
+def sum_n(num):
+    return num*(num+1)/2
 
 
 with open('data.txt', 'r') as file:
