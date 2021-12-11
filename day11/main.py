@@ -17,13 +17,6 @@ def add_adj_one(ar, pos):
     ar[pos[0]][pos[1]] = 0
 
 
-def greater_than_9_to_0(ar):
-    for a in range(10):
-        for b in range(10):
-            if ar[a][b] > 9:
-                ar[a][b] = 0
-
-
 with open('data.txt', 'r') as file:
     my_list = file.read().split()
     arr = []
