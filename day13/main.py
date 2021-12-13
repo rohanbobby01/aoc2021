@@ -37,7 +37,6 @@ def folding(ar, li):
 with open('data.txt', 'r') as file:
     pts = []
     folds = []
-    ans2 = 0
     for item in file.read().split('\n'):
         if ',' in item:
             pts.append(list(map(lambda num: int(num), item.split(','))))
