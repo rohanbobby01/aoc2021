@@ -13,13 +13,13 @@ def x_fold(ar, x):
 
 
 def y_fold(ar, y):
-    np_x1 = ar[:y, :]
-    r, c = np_x1.shape
-    np_x2 = ar[y + 1:, :]
+    np_y1 = ar[:y, :]
+    r, c = np_y1.shape
+    np_y2 = ar[y + 1:, :]
     ar = np.zeros((r, c))
     for a in range(0, y):
         for b in range(c):
-            ar[a][b] = np_x1[a][b] + np_x2[y - 1 - a][b]
+            ar[a][b] = np_y1[a][b] + np_y2[y - 1 - a][b]
     return ar
 
 
