@@ -2,25 +2,19 @@ import numpy as np
 
 
 def x_fold(ar, x):
-    np_x1 = ar[:, :x]
-    r, c = np_x1.shape
-    np_x2 = ar[:, x + 1:]
-    ar = np.zeros((r, c))
-    for a in range(r):
-        for b in range(0, x):
-            ar[a][b] = np_x1[a][b] + np_x2[a][x - 1 - b]
-    return ar
+    x1 = ar[:, :x]
+    r1, c1 = x1.shape
+    x2 = ar[:, x + 1:][:, ::-1]
+    r2, c2 = x2.shape
+    return np.hstack((np.zeros((r1, c1 - c2)), x2)) + x1
 
 
 def y_fold(ar, y):
-    np_y1 = ar[:y, :]
-    r, c = np_y1.shape
-    np_y2 = ar[y + 1:, :]
-    ar = np.zeros((r, c))
-    for a in range(0, y):
-        for b in range(c):
-            ar[a][b] = np_y1[a][b] + np_y2[y - 1 - a][b]
-    return ar
+    y1 = ar[:y, :]
+    r1, c1 = y1.shape
+    y2 = ar[y + 1:, :][::-1, :]
+    r2, c2 = y2.shape
+    return np.vstack((np.zeros((r1 - r2, c1)), y2)) + y1
 
 
 def folding(ar, li):
