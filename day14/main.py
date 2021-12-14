@@ -4,8 +4,8 @@ import string
 def convert(upd_d, i_s):
     d = dict.fromkeys(string.ascii_uppercase, 0)
     for k, v in upd_d.items():
-        d[k[0]] = d[k[0]] + v
-        d[k[1]] = d[k[1]] + v
+        d[k[0]] += v
+        d[k[1]] += v
     d[i_s[0]] += 1
     d[i_s[-1]] += 1
     d = {x: y for x, y in d.items() if y != 0}
