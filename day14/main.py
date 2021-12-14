@@ -1,14 +1,15 @@
 import string
-import math
 
 
-def convert(upd_d):
+def convert(upd_d, i_s):
     d = dict.fromkeys(string.ascii_uppercase, 0)
     for k, v in upd_d.items():
         d[k[0]] = d[k[0]] + v
         d[k[1]] = d[k[1]] + v
+    d[i_s[0]] += 1
+    d[i_s[-1]] += 1
     d = {x: y for x, y in d.items() if y != 0}
-    return math.ceil((max(d.values()) - min(d.values())) / 2)
+    return int((max(d.values()) - min(d.values())) / 2)
 
 
 def update(upd_d, conv_d, i_zeros):
@@ -34,6 +35,6 @@ with open('data.txt', 'r') as file:
     for i in range(40):
         upd_dict = update(upd_dict, conv_dict, in_zeros.copy())
         if i == 9:
-            ans1 = convert(upd_dict)
-    ans2 = convert(upd_dict)
+            ans1 = convert(upd_dict, inp_str)
+    ans2 = convert(upd_dict, inp_str)
     print(f'Answer for problem 1:{ans1}\nAnswer for problem 2:{ans2}')
